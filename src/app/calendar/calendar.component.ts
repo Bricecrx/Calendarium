@@ -23,7 +23,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   monthEvents: any[] = [];
 
   public currentDate: moment.Moment = moment();
-  public namesOfDays = ['D', 'L', 'M', 'Me', 'J', 'V', 'S'];
+  public namesOfDays = ['L', 'M', 'Me', 'J', 'V', 'S', 'D'];
   public weeks: Array<CalendarDate[]> = [];
 
   public selectedDate: string | undefined;
@@ -60,12 +60,13 @@ export class CalendarComponent implements OnInit, OnChanges {
     const firstOfMonth = moment(currentMoment).startOf('month').day();
     const lastOfMonth = moment(currentMoment).endOf('month').day();
 
+    // Minus 1, otherwise, sunday is the first day of the week
     const firstDayOfGrid = moment(currentMoment)
       .startOf('month')
-      .subtract(firstOfMonth, 'days');
+      .subtract(firstOfMonth - 1, 'days');
     const lastDayOfGrid = moment(currentMoment)
       .endOf('month')
-      .subtract(lastOfMonth, 'days')
+      .subtract(lastOfMonth - 1, 'days')
       .add(7, 'days');
     const startCalendar = firstDayOfGrid.date();
 
