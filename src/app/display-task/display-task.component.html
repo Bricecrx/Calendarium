@@ -11,8 +11,8 @@
 </nz-modal>
 
 <ng-template #nzContent>
-  <label>Heure</label>
-  <p>{{ hour }}</p>
+  <label *ngIf="hour !== null">Heure</label>
+  <p *ngIf="hour !== null">{{ hour }}</p>
   <label>Description</label>
   <p>{{ description }}</p>
   <label>Réalisée</label>

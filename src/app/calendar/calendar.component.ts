@@ -238,14 +238,12 @@ export class CalendarComponent implements OnInit, OnChanges {
         list[elementIndex].data.isCC === false
       ) {
         answerList[0] = true;
-        console.log('there is an event today');
       }
       if (
         Number(list[elementIndex].data.date.split('/')[0]) === day &&
         list[elementIndex].data.isCC === true
       ) {
         answerList[1] = true;
-        console.log('there is an exam today');
       }
       elementIndex++;
     }

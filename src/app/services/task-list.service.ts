@@ -91,6 +91,14 @@ export class TaskListService {
 
   sortByHour() {
     this.localTaskList = this.localTaskList.sort((a, b) => {
+      // Case where one or more task do(es) not have an hour
+      if (a.data.hour === null) {
+        return 1;
+      }
+      if (b.data.hour === null) {
+        return -1;
+      }
+      // Normal case
       const test = this.compareMoreOrEqual(a.data.hour, b.data.hour);
       if (test) {
         return 1;

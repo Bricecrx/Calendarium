@@ -105,7 +105,10 @@ export class TaskListComponent implements OnInit {
     }
   }
 
-  strictlySuperiorThanCurrentHour(hour: string) {
+  strictlySuperiorThanCurrentHour(hour: string | null) {
+    if (hour === null) {
+      return false;
+    }
     const currentHourSplit = this.getHour().split(':');
     const hourSplit = hour.split(':');
     if (hourSplit[0] === currentHourSplit[0]) {

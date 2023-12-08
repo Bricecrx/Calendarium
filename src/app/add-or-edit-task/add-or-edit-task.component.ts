@@ -71,11 +71,11 @@ export class AddOrEditTaskComponent implements OnChanges, OnInit {
 
   async submit() {
     try {
-      if (this.formData.invalid) {
-        return;
-      }
+      // if (this.formData.invalid) {
+      //   return;
+      // }
       //We do a test with hour format
-      if (!this.testHourFormat()) {
+      if (this.formData.value.hour !== null && !this.testHourFormat()) {
         this.showError = true;
         return;
       }

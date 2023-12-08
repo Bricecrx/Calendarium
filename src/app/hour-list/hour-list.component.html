@@ -6,8 +6,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of taskList" (click)="displayTask(item)" [ngClass]="{'past-time': strictlySuperiorThanCurrentDate(item.data.date) || (getDate() === item.data.date && strictlySuperiorThanCurrentHour(item.data.hour))}">
-            <td class="hour" [ngClass]="{'done-task' : item.data.done}">{{item.data.hour}}</td>
-            <td [ngClass]="{'done-task' : item.data.done}" class="title-task">{{item.data.title}}</td>
+            <td class="hour" *ngIf="item.data.hour !== null" [ngClass]="{'done-task' : item.data.done}">{{item.data.hour}}</td>
+            <td [ngClass]="{'done-task' : item.data.done}" *ngIf="item.data.hour !== null" class="title-task">{{item.data.title}}</td>
         </tr>
     </tbody>
 </table>
