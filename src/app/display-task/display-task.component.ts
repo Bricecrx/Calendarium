@@ -20,7 +20,7 @@ export class DisplayTaskComponent implements OnChanges {
   title = '';
   hour = '';
   description = '';
-  done = 'No';
+  done = 'Non';
   backgroundColor = '';
 
   constructor(private colorService: ColorService) {
@@ -36,9 +36,9 @@ export class DisplayTaskComponent implements OnChanges {
       this.hour = changes.data.currentValue.hour;
       this.description = changes.data.currentValue.description;
       if (changes.data.currentValue.done) {
-        this.done = 'Yes';
+        this.done = 'Oui';
       } else {
-        this.done = 'No';
+        this.done = 'Non';
       }
     }
   }
