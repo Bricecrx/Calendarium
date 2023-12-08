@@ -1,0 +1,29 @@
+.line-wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
+    .miniature {
+        width: 123px;
+        height: 80px;
+    }
+
+    span {
+        cursor: pointer;
+        width: 30px;
+    }
+
+    span:hover {
+        transform: scale(1.35);
+    }
+}
+
+span {
+    cursor: pointer;
+}
+
+span:hover {
+    transform: scale(1.35);
+}

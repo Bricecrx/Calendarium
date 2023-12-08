@@ -1,0 +1,65 @@
+<div class="calendar__wrapper">
+  <div class="calendar" #calendar>
+    <div class="calendar__navs">
+      <div class="calendar__month-nav">
+        <button class="calendar__nav-btn" (click)="prevMonth()">&lt;</button>
+        <span class="modal-opener" (click)="showModal()">
+          {{ translateMonth(currentDate.format("MMMM").toUpperCase()) }}
+          {{ currentDate.format("YYYY") }}
+        </span>
+        <button class="calendar__nav-btn" (click)="nextMonth()">&gt;</button>
+      </div>
+    </div>
+    <div class="calendar__month">
+      <div class="calendar__day-names">
+        <div class="calendar__day-name" *ngFor="let name of namesOfDays">
+          {{ name }}
+        </div>
+      </div>
+      <div class="calendar__weeks">
+        <div class="calendar__week" *ngFor="let week of weeks">
+          <ng-container *ngFor="let day of week">
+            <div
+              class="calendar__date"
+              [ngClass]="{
+                today: day.today,
+                selected: day.selected,
+                disabled: !isSelectedMonth(day.mDate)
+              }"
+              (click)="selectDate(day)"
+            >
+              <span class="calendar__number">{{ day.mDate.date() }}</span>
+              <nz-badge
+                nzDot
+                [nzShowDot]="isDayInList(day.mDate.date(), monthBirthdays)"
+                nzStandalone
+                [nzStyle]="{ backgroundColor: '#FFB6C1' }"
+                [style.z-index]="9000"
+              ></nz-badge>
+              <nz-badge
+                nzDot
+                [nzShowDot]="isDayInListEvent(day.mDate.date(), monthEvents)[0]"
+                nzStandalone
+                [nzStyle]="{ backgroundColor: '#A9CBD7' }"
+                [style.z-index]="9000"
+              ></nz-badge>
+              <nz-badge
+                nzDot
+                [nzShowDot]="isDayInListEvent(day.mDate.date(), monthEvents)[1]"
+                nzStandalone
+                [nzStyle]="{ backgroundColor: '#028A0F' }"
+                [style.z-index]="9000"
+              ></nz-badge>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-month-choose
+  [isVisible]="isVisibleModal"
+  (modalHandler)="handleModal($event)"
+  [selectedDate]="selectedDate"
+></app-month-choose>

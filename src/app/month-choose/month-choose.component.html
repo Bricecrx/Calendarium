@@ -1,0 +1,39 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]=""
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="700"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{ 'background-color': backgroundColor }"
+>
+  <div *nzModalFooter></div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <div *ngFor="let year of yearList">
+    <div class="title">
+      <h1>{{ year }}</h1>
+    </div>
+    <div class="month-container">
+      <div
+        class="month-item"
+        *ngFor="let month of monthList"
+        (click)="selectMonth(month, year)"
+      >
+        <button
+          class="month-button-selected"
+          *ngIf="month === currentMonth && year === currentYear"
+        >
+          {{ month }}
+        </button>
+        <button
+          class="month-button"
+          *ngIf="month !== currentMonth || year !== currentYear"
+        >
+          {{ month }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-template>

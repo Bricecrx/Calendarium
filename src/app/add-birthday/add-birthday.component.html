@@ -1,0 +1,49 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Ajout d'un anniversaire"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{ 'background-color': backgroundColor }"
+>
+  <div *nzModalFooter>
+    <p [ngClass]="showError ? 'date-error' : 'hidden-error'">
+      Veuillez respecter le format indiqué pour la date.
+    </p>
+    <button
+      nz-button
+      class="BwRedLinkButton btn-modal"
+      nzSize="small"
+      (click)="handleCancel()"
+    >
+      ANNULER
+    </button>
+    <button
+      nz-button
+      (click)="submit()"
+      class="BwBlueButton btn-modal"
+      nzSize="small"
+      [disabled]="formData.invalid"
+    >
+      ENREGISTRER
+    </button>
+  </div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <form nz-form novalidate [formGroup]="formData" (ngSubmit)="submit()">
+    <label>Nom du joyeux chenapan</label>
+    <input nz-input formControlName="name" />
+    <label>Date (format : 'JJ/MM/AAAA')</label>
+    <input nz-input formControlName="date" />
+    <label>Souhaitez vous ajouter cet évènement tous les ans ?</label>
+    <label
+      class="checkbox-input"
+      nz-checkbox
+      [nzChecked]="false"
+      formControlName="checkbox"
+    ></label>
+    <input type="submit" class="hidden-submit-form" />
+  </form>
+</ng-template>

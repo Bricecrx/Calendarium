@@ -1,0 +1,19 @@
+<div class="image-scroller">
+  <!-- The click is disabled for now because the system does not work yet and I make a first prod env -->
+  <!-- <img
+    (click)="openModal()"
+    class="image"
+    [src]="currentAddress"
+    alt="Image Shower"
+  /> -->
+  <img
+    class="image"
+    [src]="currentAddress"
+    alt="Image Shower"
+  />
+</div>
+
+<app-image-modal
+  [isVisible]="isVisibleModal"
+  (modalHandler)="handleModal()"
+></app-image-modal>

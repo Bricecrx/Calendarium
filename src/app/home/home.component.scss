@@ -1,0 +1,86 @@
+:host {
+}
+
+h1 {
+  font-size: 32px;
+  font-style: italic;
+}
+
+.container {
+  display: flex;
+  overflow-y: hidden;
+
+  .left-part {
+    width: 70%;
+    padding: 16px;
+
+    .hidden-birthdays {
+      display: none;
+    }
+
+    .birthdays-container {
+      display: block;
+
+      .birthday-row:hover {
+        transform: translateX(48px) scale(1.1);
+        cursor: pointer;
+      }
+    }
+
+    nz-tabset {
+      margin-bottom: 16px;
+    }
+
+    span.click-icon:hover {
+      transform: scale(1.35);
+      cursor: pointer;
+    }
+
+    span {
+      margin-left: 8px;
+    }
+
+    .setting-icon {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      padding: 8px;
+    }
+  }
+
+  .right-part {
+    width: 30%;
+    max-height: 100vh;
+    padding: 16px;
+
+    // .image-scroller {
+    //     padding-top: 24px;
+    //     padding-bottom: 12px;
+
+    //     .image {
+    //         width: 368px;
+    //         height: 267px;
+    //     }
+    // }
+
+    .date-choosing {
+      display: flex;
+    }
+
+    .right-part-child {
+      max-width: 100%;
+    }
+  }
+}
+
+::ng-deep .ant-tabs-tab {
+  padding-left: 3px;
+}
+::ng-deep .ant-tabs-tab:hover {
+  transform: scale(1.1);
+}
+::ng-deep .ant-tabs-tab-active {
+  transform: scale(1.1);
+  // border-bottom: none;
+  border-bottom: 2px solid #bf2d30 !important;
+}

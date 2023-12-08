@@ -1,0 +1,43 @@
+<table>
+  <tbody>
+    <tr *ngFor="let item of taskList">
+      <td class="checkbox-task">
+        <label
+          nz-checkbox
+          [nzChecked]="item.data.done"
+          (nzCheckedChange)="updateDone(item)"
+        ></label>
+      </td>
+      <td
+        [ngClass]="{
+          'done-task': item.data.done,
+          'past-time':
+            strictlySuperiorThanCurrentDate(item.data.date) ||
+            (getDate() === item.data.date &&
+              strictlySuperiorThanCurrentHour(item.data.hour))
+        }"
+        class="title-task"
+        (click)="displayInfo(item)"
+      >
+        {{ item.data.title }}
+      </td>
+      <td class="buttons-task">
+        <span nz-icon [nzType]="'edit'" style="font-size: 19px;" (click)="modify(item)"></span>
+        <span nz-icon [nzType]="'close'" style="font-size: 19px;" (click)="delete(item)"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-add-or-edit-task
+  [isVisible]="isVisibleModal"
+  [dataId]="selectedTask?.id"
+  [data]="selectedTask?.data"
+  (modalHandler)="handleModal()"
+></app-add-or-edit-task>
+
+<app-display-task
+  [isVisible]="isVisibleModalDisplay"
+  [data]="selectedTaskDisplay?.data"
+  (modalHandler)="handleModalDisplay()"
+></app-display-task>

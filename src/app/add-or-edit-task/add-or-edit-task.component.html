@@ -1,0 +1,47 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="data ? 'Modification d\'une tâche' : 'Création d\'une nouvelle tâche'"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{'background-color': backgroundColor}"
+>
+  <div *nzModalFooter>
+    <p [ngClass]="showError ? 'hour-error' : 'hidden-error'">Veuillez respecter le format indiqué pour l'heure.</p>
+    <button
+      nz-button
+      class="BwRedLinkButton btn-modal"
+      nzSize="small"
+      (click)="handleCancel()"
+    >
+      ANNULER
+    </button>
+    <button
+      nz-button
+      (click)="submit()"
+      class="BwBlueButton btn-modal"
+      nzSize="small"
+      [disabled]="formData.invalid"
+    >
+      ENREGISTRER
+    </button>
+  </div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <form
+      nz-form
+      novalidate
+      [formGroup]="formData"
+      (ngSubmit)="submit()"
+    >
+  <label>Titre</label>
+  <input nz-input formControlName="title" />
+  <label>Heure (format : 'HH:MM')</label>
+  <input nz-input formControlName="hour" />
+  <input type="submit" class="hidden-submit-form">
+  <label>Description</label>
+  <textarea (keydown.enter)="submit()" nz-input formControlName="description"></textarea>
+  </form>
+</ng-template>

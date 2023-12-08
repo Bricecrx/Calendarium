@@ -1,0 +1,41 @@
+.date-error {
+    display: block;
+    font-weight: bold;
+    color: red;
+  }
+  
+  .hidden-error {
+    display: none;
+  }
+  
+  input {
+    background-color: var(--background);
+    margin-bottom: 8px;
+  }
+  
+  textarea {
+    background-color: var(--background);
+  }
+  
+  .btn-modal {
+    background-color: var(--button-form-background);
+    margin-right: 8px;
+    border-radius: 4px;
+    border-width: 0px;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .btn-modal:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 2px 2px gray; ;
+  }
+
+  .checkbox-input {
+    margin-left: 8px;
+  }
+
+  .hidden-submit-form {
+    display: none;
+  }
+  

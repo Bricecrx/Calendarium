@@ -1,0 +1,26 @@
+input {
+    background-color: var(--background);
+  }
+  
+  textarea {
+    background-color: var(--background);
+  }
+  
+  .btn-modal {
+    background-color: var(--button-form-background);
+    margin-right: 8px;
+    border-width: 2px;
+    border-color: black;
+    padding: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-modal:hover {
+    transform: scale(1.1);
+    box-shadow: 4px 2px 2px gray; ;
+  }
+
+  .settings-button-container {
+    display: flex;
+    justify-content: space-evenly;
+  }

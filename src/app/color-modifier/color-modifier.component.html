@@ -1,0 +1,99 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Ajout d'un évènement"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{ 'background-color': modalBackgroundColor }"
+>
+  <div *nzModalFooter>
+    <button
+      nz-button
+      class="BwRedLinkButton btn-modal"
+      nzSize="small"
+      (click)="handleCancel()"
+    >
+      ANNULER
+    </button>
+    <button
+      nz-button
+      class="BwRedLinkButton btn-modal"
+      nzSize="small"
+      (click)="reinitialize()"
+      nz-tooltip
+      nzTooltipTitle="Attention, cette action réinitialisera les couleurs aux couleurs de base de l'application"
+    >
+      REINITIALISER
+    </button>
+    <button
+      nz-button
+      (click)="submit()"
+      class="BwBlueButton btn-modal"
+      nzSize="small"
+      [disabled]="formData.invalid"
+    >
+      ENREGISTRER
+    </button>
+  </div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <form nz-form novalidate [formGroup]="formData" (ngSubmit)="submit()">
+    <div class="color-picker-row">
+      <label>Couleur de l'arrière plan : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="backgroundColor"
+        [style.background]="backgroundColor"
+        formControlName="background"
+      />
+    </div>
+    <div class="color-picker-row">
+      <label>Couleur de fond des boutons formulaires : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="buttonFormColor"
+        [style.background]="buttonFormColor"
+        formControlName="buttonForm"
+      />
+    </div>
+    <div class="color-picker-row">
+      <label>Couleur de l'arrière plan du calendrier : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="calendarColor"
+        [style.background]="calendarColor"
+        formControlName="calendar"
+      />
+    </div>
+    <div class="color-picker-row">
+      <label>Couleur de surlignage des tâches : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="taskHighlightColor"
+        [style.background]="taskHighlightColor"
+        formControlName="highlight"
+      />
+    </div>
+    <div class="color-picker-row">
+      <label>Couleur du bouton selectionné (sélection de mois) : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="monthSelectedButtonColor"
+        [style.background]="monthSelectedButtonColor"
+        formControlName="monthSelected"
+      />
+    </div>
+    <div class="color-picker-row">
+      <label>Couleur des boutons non selectionnés (sélection de mois) : </label>
+      <input
+        class="color-picker"
+        [(colorPicker)]="monthNonSelectedButtonColor"
+        [style.background]="monthNonSelectedButtonColor"
+        formControlName="monthNonSelected"
+      />
+    </div>
+    <input type="submit" class="hidden-submit-form" />
+  </form>
+</ng-template>

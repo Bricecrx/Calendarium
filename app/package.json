@@ -1,0 +1,14 @@
+{
+  "name": "calendarium",
+  "version": "1.0.0",
+  "icon":"build/favicon.ico",
+  "description": "A first version of romane's organizer",
+  "author": {
+    "name": "Brice CONRAUX",
+    "email": "conrauxbrice@gmail.com"
+  },
+  "main": "main.js",
+  "private": true,
+  "dependencies": {
+  }
+}

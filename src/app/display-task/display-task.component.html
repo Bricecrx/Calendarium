@@ -1,0 +1,20 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="title"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{ 'background-color': backgroundColor }"
+>
+  <div *nzModalFooter [style]="{ 'background-color': backgroundColor }"></div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <label>Heure</label>
+  <p>{{ hour }}</p>
+  <label>Description</label>
+  <p>{{ description }}</p>
+  <label>Réalisée</label>
+  <p>{{ done }}</p>
+</ng-template>

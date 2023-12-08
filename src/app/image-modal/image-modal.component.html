@@ -1,0 +1,34 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="'Gestion des images'"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+>
+  <div *nzModalFooter></div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <div class="line-wrapper" *ngFor="let image of imageList">
+    <img class="miniature" [src]="image.data.address" alt="Sample logo" />
+    <p>{{ fromAddressToName(image.data.address) }}</p>
+    <!-- <button nz-button (click)="deleteImage(image)">D</button> -->
+    <span
+      nz-icon
+      [nzType]="'delete'"
+      style="font-size: 19px"
+      (click)="deleteImage(image)"
+    ></span>
+  </div>
+  <!-- <button nz-button appFilePicker [multiple]="true" (filesChanged)="importImages($event)">+</button> -->
+  <span
+    nz-icon
+    nzType="plus-circle"
+    nzTheme="outline"
+    style="font-size: 19px"
+    appFilePicker
+    [multiple]="true"
+    (filesChanged)="importImages($event)"
+  ></span>
+</ng-template>

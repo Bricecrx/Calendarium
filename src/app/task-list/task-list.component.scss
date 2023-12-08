@@ -1,0 +1,44 @@
+table {
+  width: 100%;
+
+  tbody {
+    width: 100%;
+
+    td {
+      justify-content: center;
+      font-size: 19px;
+      cursor: pointer;
+
+      span {
+        margin-right: 16px;
+      }
+      span:hover {
+        transform: scale(1.35);
+      }
+
+      label:hover {
+        transform: scale(1.35);
+      }
+
+      label {
+        margin-left: 8px;
+      }
+    }
+
+    td.buttons-task {
+      width: 10%;
+    }
+
+    td.checkbox-task {
+      width: 5%;
+    }
+
+    .done-task {
+      background-color: var(--task-highlight);
+    }
+
+    .past-time {
+      color: gray;
+    }
+  }
+}

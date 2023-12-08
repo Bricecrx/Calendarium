@@ -51,6 +51,11 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+# Optional angular cache directory
+.angular
+.vscode
+.node_modules
+
 # Optional eslint cache
 .eslintcache
 
@@ -128,3 +133,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Unuseful big data
+release
+src/assets/images

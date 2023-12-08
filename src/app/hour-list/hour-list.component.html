@@ -1,0 +1,19 @@
+<table>
+    <thead>
+        <!-- <th></th> -->
+        <th>Heure</th>
+        <th>Tâche</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of taskList" (click)="displayTask(item)" [ngClass]="{'past-time': strictlySuperiorThanCurrentDate(item.data.date) || (getDate() === item.data.date && strictlySuperiorThanCurrentHour(item.data.hour))}">
+            <td class="hour" [ngClass]="{'done-task' : item.data.done}">{{item.data.hour}}</td>
+            <td [ngClass]="{'done-task' : item.data.done}" class="title-task">{{item.data.title}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<app-display-task
+  [isVisible]="isVisibleModal"
+  [data]="selectedTask?.data"
+  (modalHandler)="handleModal()"
+></app-display-task>

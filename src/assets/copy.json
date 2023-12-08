@@ -1,0 +1,29 @@
+{
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Manger",
+        "description": "Petit Dej",
+        "date": "26/08/2023",
+        "hour": "9:30",
+        "done": false
+      },
+      {
+        "id": 2,
+        "title": "Sucer un caillou",
+        "description": "Petit Dej",
+        "date": "26/08/2023",
+        "hour": "10:30",
+        "done": false
+      },
+      {
+        "id": 3,
+        "title": "Se fendre la poire",
+        "description": "Petit Dej",
+        "date": "26/08/2023",
+        "hour": "11:30",
+        "done": true
+      }
+    ]
+  }
+  

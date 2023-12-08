@@ -1,0 +1,16 @@
+:root {
+  --background: #F4EEE7;
+  --button-form-background: #d291bc;
+  --calendar-background: #D4C7C2;
+  --task-highlight: #CCE4DA;
+  --selected-month-choose-button: #D291BC;
+  --month-choose-button: #F3E1E5;
+}
+
+
+html {
+  body {
+    background-color: var(--background);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+}

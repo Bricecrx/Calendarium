@@ -1,0 +1,50 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="'Paramètres'"
+  [nzContent]="nzContent"
+  (nzOnCancel)="handleCancel()"
+  [nzWidth]="652"
+  nzClassName="add-visit-modal"
+  [nzBodyStyle]="{ 'background-color': backgroundColor }"
+>
+  <div *nzModalFooter></div>
+</nz-modal>
+
+<ng-template #nzContent>
+  <div class="settings-button-container">
+    <button nz-button (click)="handleColorModal()" class="BwRedLinkButton btn-modal" nzSize="small">
+      GESTION DES COULEURS
+    </button>
+    <button
+      nz-button
+      (click)="handleBirthdayModal()"
+      class="BwBlueButton btn-modal"
+      nzSize="small"
+    >
+      ANNIVERSAIRE
+    </button>
+    <button
+      nz-button
+      (click)="handleEventModal()"
+      class="BwBlueButton btn-modal"
+      nzSize="small"
+    >
+      EVENEMENT
+    </button>
+  </div>
+</ng-template>
+
+<app-add-birthday
+  [isVisible]="isVisibleBirthdayModal"
+  (modalHandler)="handleBirthdayModal()"
+></app-add-birthday>
+
+<app-add-event
+  [isVisible]="isVisibleEventModal"
+  (modalHandler)="handleEventModal()"
+></app-add-event>
+
+<app-color-modifier
+  [isVisible]="isVisibleColorModal"
+  (modalHandler)="handleColorModal()"
+></app-color-modifier>
